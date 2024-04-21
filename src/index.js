@@ -2,14 +2,19 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { HelmetProvider, Helmet } from "react-helmet-async";
 
+import "bootstrap/dist/css/bootstrap.min.css";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import "bootstrap/dist/css/bootstrap.min.css";
+import Card from "react-bootstrap/Card";
+import CardGroup from "react-bootstrap/CardGroup";
+import Image from "react-bootstrap/Image";
+import { toBeEmpty } from "@testing-library/jest-dom/dist/matchers";
 
+// import "./index.css"; css import etme
 const pizzaData = [
   {
     name: "Focaccia",
@@ -76,7 +81,14 @@ function Header() {
   return (
     <header>
       <h1 style={{ color: "black", textAlign: "center", fontWeight: "bold" }}>
-        # Fast Restaurant #
+        <Image
+          src="https://img.freepik.com/free-vector/flat-design-pizzeria-vintage-logo_23-2150237003.jpg?t=st=1713739191~exp=1713742791~hmac=c116fdc8bfa63b10cd7f2046424d6c7eb5769ff8ae9d49e8958704e6e7ff327f&w=740"
+          style={{
+            width: "250px",
+            marginTop: "-30px",
+            marginBottom: "-50px",
+          }}
+        />
       </h1>
       <NavScrollExample />
     </header>
@@ -111,7 +123,11 @@ function NavScrollExample() {
       data-bs-theme="dark"
     >
       <Container>
-        <Navbar.Brand href="#" className="font-weight-bold">
+        <Navbar.Brand
+          href="#"
+          className="font-weight-bold"
+          style={{ textTransform: "uppercase", fontWeight: "600" }}
+        >
           Italy Restaurant Pizza Menu
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
@@ -166,21 +182,20 @@ function Menu() {
 
 function Footer() {
   const hour = new Date().getHours();
-  const openHour = 6;
+  const openHour = 1;
   const closeHour = 22;
   const isOpen = hour >= openHour && hour <= closeHour;
-  console.log(isOpen);
-  // if (hour >= 6 && hour <= 22) {
-  //   alert("We are currently open");
-  // } else {
-  //   alert("Sorry we're closed");
-  // }
-  return (
-    <footer>
-      <p>{new Date().getFullYear()} hakları saklıdır.</p>
+  let message = "";
+  if (isOpen) {
+    message = `It's ${hour} o'clock, we are currently open `;
+  } else {
+    message = `It's ${hour} o'clock, sorry we are closed`;
+  }
 
-      <nav>
-        <ul>
+  return (
+    <footer class="bg-body-tertiary text-center">
+      {/* <nav>
+        <ul class="list-group">
           <li>
             <a href="#" title="Gizlilik Politikası">
               Gizlilik Politikası
@@ -192,7 +207,11 @@ function Footer() {
             </a>
           </li>
         </ul>
-      </nav>
+      </nav> */}
+      <div class="text-center p-3" style={{ fontWeight: "bold" }}>
+        <p>{message}</p>
+        <p>© {new Date().getFullYear()} Copyright: Ultimate React Js Course</p>
+      </div>
     </footer>
   );
 }
@@ -200,11 +219,54 @@ function Footer() {
 function Pizza() {
   return (
     <article>
-      <div>
-        <img src="pizzas/spinaci.jpg" alt="Pizza Spinaci" />
-        <h2>Pizza Spinaci</h2>
-        <p>Tomato, mozarella, spinach, and ricotta cheese</p>
-      </div>
+      <CardGroup style={{ marginTop: "15px" }}>
+        <Card
+          style={{ width: "18rem", marginRight: "10px", textAlign: "center" }}
+        >
+          <Card.Img
+            variant="top"
+            src="pizzas/spinaci.jpg"
+            alt="Pizza Spinaci"
+          />
+          <Card.Body>
+            <Card.Title>Pizza Spinaci</Card.Title>
+            <Card.Text>
+              Tomato, mozarella, spinach, and ricotta cheese
+            </Card.Text>
+            <Button variant="primary">Go somewhere</Button>
+          </Card.Body>
+        </Card>
+        <Card
+          style={{ width: "18rem", marginRight: "10px", textAlign: "center" }}
+        >
+          <Card.Img
+            variant="top"
+            src="pizzas/spinaci.jpg"
+            alt="Pizza Spinaci"
+          />
+          <Card.Body>
+            <Card.Title>Pizza Spinaci</Card.Title>
+            <Card.Text>
+              Tomato, mozarella, spinach, and ricotta cheese
+            </Card.Text>
+            <Button variant="primary">Go somewhere</Button>
+          </Card.Body>
+        </Card>
+        <Card style={{ width: "18rem", textAlign: "center" }}>
+          <Card.Img
+            variant="top"
+            src="pizzas/spinaci.jpg"
+            alt="Pizza Spinaci"
+          />
+          <Card.Body>
+            <Card.Title>Pizza Spinaci</Card.Title>
+            <Card.Text>
+              Tomato, mozarella, spinach, and ricotta cheese
+            </Card.Text>
+            <Button variant="primary">Go somewhere</Button>
+          </Card.Body>
+        </Card>
+      </CardGroup>
     </article>
   );
 }
