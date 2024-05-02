@@ -68,3 +68,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+# EXPRESS.JS API
+
+### `cd ExpressJS API` Going into a folder
+
+### `npm install express` Express.js create
+
+### `npm install cors` CORS create
+
+### `node server.js` Api server start

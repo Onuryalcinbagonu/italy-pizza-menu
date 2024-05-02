@@ -1,64 +1,66 @@
 import React from "react";
+
+import UserData from "./components/UserData";
+
 import ReactDOM from "react-dom/client";
 import { HelmetProvider, Helmet } from "react-helmet-async";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import Button from "react-bootstrap/Button";
-import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import Card from "react-bootstrap/Card";
-import CardGroup from "react-bootstrap/CardGroup";
-import Image from "react-bootstrap/Image";
-import { toBeEmpty } from "@testing-library/jest-dom/dist/matchers";
+import {
+  Container,
+  Form,
+  Nav,
+  Navbar,
+  NavDropdown,
+  Button,
+  Image,
+} from "react-bootstrap";
 
 // import "./index.css"; css import etme
-const pizzaData = [
-  {
-    name: "Focaccia",
-    ingredients: "Bread with italian olive oil and rosemary",
-    price: 6,
-    photoName: "pizzas/focaccia.jpg",
-    soldOut: false,
-  },
-  {
-    name: "Pizza Margherita",
-    ingredients: "Tomato and mozarella",
-    price: 10,
-    photoName: "pizzas/margherita.jpg",
-    soldOut: false,
-  },
-  {
-    name: "Pizza Spinaci",
-    ingredients: "Tomato, mozarella, spinach, and ricotta cheese",
-    price: 12,
-    photoName: "pizzas/spinaci.jpg",
-    soldOut: false,
-  },
-  {
-    name: "Pizza Funghi",
-    ingredients: "Tomato, mozarella, mushrooms, and onion",
-    price: 12,
-    photoName: "pizzas/funghi.jpg",
-    soldOut: false,
-  },
-  {
-    name: "Pizza Salamino",
-    ingredients: "Tomato, mozarella, and pepperoni",
-    price: 15,
-    photoName: "pizzas/salamino.jpg",
-    soldOut: true,
-  },
-  {
-    name: "Pizza Prosciutto",
-    ingredients: "Tomato, mozarella, ham, aragula, and burrata cheese",
-    price: 18,
-    photoName: "pizzas/prosciutto.jpg",
-    soldOut: false,
-  },
-];
+// const pizzaData = [
+//   {
+//     name: "Focaccia",
+//     ingredients: "Bread with italian olive oil and rosemary",
+//     price: 6,
+//     photoName: "pizzas/focaccia.jpg",
+//     soldOut: false,
+//   },
+//   {
+//     name: "Pizza Margherita",
+//     ingredients: "Tomato and mozarella",
+//     price: 10,
+//     photoName: "pizzas/margherita.jpg",
+//     soldOut: false,
+//   },
+//   {
+//     name: "Pizza Spinaci",
+//     ingredients: "Tomato, mozarella, spinach, and ricotta cheese",
+//     price: 12,
+//     photoName: "pizzas/spinaci.jpg",
+//     soldOut: false,
+//   },
+//   {
+//     name: "Pizza Funghi",
+//     ingredients: "Tomato, mozarella, mushrooms, and onion",
+//     price: 12,
+//     photoName: "pizzas/funghi.jpg",
+//     soldOut: false,
+//   },
+//   {
+//     name: "Pizza Salamino",
+//     ingredients: "Tomato, mozarella, and pepperoni",
+//     price: 15,
+//     photoName: "pizzas/salamino.jpg",
+//     soldOut: true,
+//   },
+//   {
+//     name: "Pizza Prosciutto",
+//     ingredients: "Tomato, mozarella, ham, aragula, and burrata cheese",
+//     price: 18,
+//     photoName: "pizzas/prosciutto.jpg",
+//     soldOut: false,
+//   },
+// ];
 
 function App() {
   return (
@@ -172,9 +174,7 @@ function Menu() {
   return (
     <section>
       <Container>
-        <Pizza />
-        <Pizza />
-        <Pizza />
+        <UserData />
       </Container>
     </section>
   );
@@ -193,7 +193,7 @@ function Footer() {
   }
 
   return (
-    <footer class="bg-body-tertiary text-center">
+    <footer className="bg-body-tertiary text-center">
       {/* <nav>
         <ul class="list-group">
           <li>
@@ -208,7 +208,7 @@ function Footer() {
           </li>
         </ul>
       </nav> */}
-      <div class="text-center p-3" style={{ fontWeight: "bold" }}>
+      <div className="text-center p-3" style={{ fontWeight: "bold" }}>
         <p>{message}</p>
         <p>© {new Date().getFullYear()} Copyright: Ultimate React Js Course</p>
       </div>
@@ -216,60 +216,60 @@ function Footer() {
   );
 }
 
-function Pizza() {
-  return (
-    <article>
-      <CardGroup style={{ marginTop: "15px" }}>
-        <Card
-          style={{ width: "18rem", marginRight: "10px", textAlign: "center" }}
-        >
-          <Card.Img
-            variant="top"
-            src="pizzas/spinaci.jpg"
-            alt="Pizza Spinaci"
-          />
-          <Card.Body>
-            <Card.Title>Pizza Spinaci</Card.Title>
-            <Card.Text>
-              Tomato, mozarella, spinach, and ricotta cheese
-            </Card.Text>
-            <Button variant="primary">Go somewhere</Button>
-          </Card.Body>
-        </Card>
-        <Card
-          style={{ width: "18rem", marginRight: "10px", textAlign: "center" }}
-        >
-          <Card.Img
-            variant="top"
-            src="pizzas/spinaci.jpg"
-            alt="Pizza Spinaci"
-          />
-          <Card.Body>
-            <Card.Title>Pizza Spinaci</Card.Title>
-            <Card.Text>
-              Tomato, mozarella, spinach, and ricotta cheese
-            </Card.Text>
-            <Button variant="primary">Go somewhere</Button>
-          </Card.Body>
-        </Card>
-        <Card style={{ width: "18rem", textAlign: "center" }}>
-          <Card.Img
-            variant="top"
-            src="pizzas/spinaci.jpg"
-            alt="Pizza Spinaci"
-          />
-          <Card.Body>
-            <Card.Title>Pizza Spinaci</Card.Title>
-            <Card.Text>
-              Tomato, mozarella, spinach, and ricotta cheese
-            </Card.Text>
-            <Button variant="primary">Go somewhere</Button>
-          </Card.Body>
-        </Card>
-      </CardGroup>
-    </article>
-  );
-}
+// function Pizza() {
+//   return (
+//     <article>
+//       <CardGroup style={{ marginTop: "15px" }}>
+//         <Card
+//           style={{ width: "18rem", marginRight: "10px", textAlign: "center" }}
+//         >
+//           <Card.Img
+//             variant="top"
+//             src="pizzas/spinaci.jpg"
+//             alt="Pizza Spinaci"
+//           />
+//           <Card.Body>
+//             <Card.Title>Pizza Spinaci</Card.Title>
+//             <Card.Text>
+//               Tomato, mozarella, spinach, and ricotta cheese
+//             </Card.Text>
+//             <Button variant="primary">Go somewhere</Button>
+//           </Card.Body>
+//         </Card>
+//         <Card
+//           style={{ width: "18rem", marginRight: "10px", textAlign: "center" }}
+//         >
+//           <Card.Img
+//             variant="top"
+//             src="pizzas/spinaci.jpg"
+//             alt="Pizza Spinaci"
+//           />
+//           <Card.Body>
+//             <Card.Title>Pizza Spinaci</Card.Title>
+//             <Card.Text>
+//               Tomato, mozarella, spinach, and ricotta cheese
+//             </Card.Text>
+//             <Button variant="primary">Go somewhere</Button>
+//           </Card.Body>
+//         </Card>
+//         <Card style={{ width: "18rem", textAlign: "center" }}>
+//           <Card.Img
+//             variant="top"
+//             src="pizzas/spinaci.jpg"
+//             alt="Pizza Spinaci"
+//           />
+//           <Card.Body>
+//             <Card.Title>Pizza Spinaci</Card.Title>
+//             <Card.Text>
+//               Tomato, mozarella, spinach, and ricotta cheese
+//             </Card.Text>
+//             <Button variant="primary">Go somewhere</Button>
+//           </Card.Body>
+//         </Card>
+//       </CardGroup>
+//     </article>
+//   );
+// }
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
