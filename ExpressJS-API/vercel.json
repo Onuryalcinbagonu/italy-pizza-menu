@@ -9,7 +9,7 @@
   "routes": [
     {
       "src": "/(. *)",
-      "hedef": "server.js/api"
+      "dest": "server.js"
     }
   ]
 }
