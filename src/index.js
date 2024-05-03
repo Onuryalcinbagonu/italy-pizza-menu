@@ -17,6 +17,7 @@ import {
 } from "react-bootstrap";
 
 // import "./index.css"; css import etme
+
 // const pizzaData = [
 //   {
 //     name: "Focaccia",
@@ -80,9 +81,10 @@ function App() {
 }
 
 function Header() {
+  const style = { color: "black", textAlign: "center", fontWeight: "bold" };
   return (
     <header>
-      <h1 style={{ color: "black", textAlign: "center", fontWeight: "bold" }}>
+      <h1 style={style}>
         <Image
           src="https://img.freepik.com/free-vector/flat-design-pizzeria-vintage-logo_23-2150237003.jpg?t=st=1713739191~exp=1713742791~hmac=c116fdc8bfa63b10cd7f2046424d6c7eb5769ff8ae9d49e8958704e6e7ff327f&w=740"
           style={{
