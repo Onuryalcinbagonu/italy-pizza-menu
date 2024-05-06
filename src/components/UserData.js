@@ -8,9 +8,7 @@ function UserData() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(
-          "https://italy-menu-api-git-main-onuryalcinbagonus-projects.vercel.app/api/data"
-        );
+        const response = await fetch("http://localhost:3001/api/data");
         const data = await response.json();
         setMenuData(data);
         setLoading(false);
@@ -25,9 +23,7 @@ function UserData() {
 
   return (
     <article>
-      {loading ? (
-        <p>Loading...</p>
-      ) : (
+      {
         <div>
           {menuData.map((item, index) =>
             index % 3 === 0 ? (
@@ -68,7 +64,7 @@ function UserData() {
             ) : null
           )}
         </div>
-      )}
+      }
     </article>
   );
 }
