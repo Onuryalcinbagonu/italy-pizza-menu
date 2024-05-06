@@ -8,7 +8,7 @@ function UserData() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:3001/api/data");
+        const response = await fetch("https://italy-menu-api.vercel.app/");
         const data = await response.json();
         setMenuData(data);
         setLoading(false);
