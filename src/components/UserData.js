@@ -34,7 +34,7 @@ function UserData() {
                       <Card
                         key={index + i}
                         style={{
-                          width: "18rem",
+                          
                           marginRight: "10px",
                           textAlign: "center",
                         }}
